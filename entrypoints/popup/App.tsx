@@ -7,7 +7,7 @@ import Menu from "./comp/menu";
 function App() {
   return (
     <>
-      <div>
+      <div className="card">
         <Menu />
       </div>
     </>
