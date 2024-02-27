@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-import reactLogo from "@/assets/react.svg";
-import wxtLogo from "/wxt.svg";
-import "@/entrypoints/popup/App.css";
+import "./style.css";
 import { browser } from "wxt/browser";
 
 function Menu() {
@@ -11,10 +9,6 @@ function Menu() {
   const [msg, setMsg] = useState("");
   const [url, setUrl] = useState("");
   const [title, setTitle] = useState("");
-  browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    console.log(message); // "ping"
-    return true;
-  });
   useEffect(() => {
     browser.tabs.query({ active: true, currentWindow: true }).then((tabs) => {
       let _title = tabs[0]?.title || "";
@@ -22,19 +16,26 @@ function Menu() {
       setTitle(_title);
       setUrl(_url);
       setMsg(formatMsg(_title, _url));
-      console.log("currentMsg", msg);
     });
   }, []);
+  const [btnText, setBtnText] = useState("Copy Markdown Link");
+  let switchBtnText = (
+    value: string,
+    setValue: React.Dispatch<React.SetStateAction<string>>
+  ) => {
+    setValue("Done");
+    setTimeout(() => {
+      setValue(value);
+    }, 1000);
+  };
   let handleCopy = (_msg: string) => {
     navigator.clipboard
       .writeText(_msg)
       .then(function () {
-        // 复制成功时的回调
-        console.log("内容已复制：", _msg);
+        switchBtnText(btnText, setBtnText);
       })
       .catch(function (error) {
-        // 复制失败时的回调
-        console.error("复制失败:", error);
+        console.error("failed:", error);
       });
   };
   return (
@@ -46,7 +47,7 @@ function Menu() {
         </p>
       </div>
       <div className="btn-area">
-        <button onClick={() => handleCopy(msg)}>Copy Markdown Link</button>
+        <button onClick={() => handleCopy(msg)}>{btnText}</button>
       </div>
     </>
   );

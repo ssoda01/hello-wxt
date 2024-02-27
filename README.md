@@ -1,4 +1,7 @@
-# Give Me MarkDown Link 
+# Give Me Link 
+
+> easy markdown link generator
+
 Enhance your note-taking efficiency with this handy tool designed to quickly generate markdown links for the current tab. Streamline your learning process with ease
 
 ![sample](./screenshot/sample-0.1.webp)

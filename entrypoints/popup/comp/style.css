@@ -1,0 +1,61 @@
+.link {
+    max-height: 100px;
+    overflow: auto;
+    border-radius: 2rem;
+    padding: 0 1rem;
+}
+
+/* 隐藏滚动条的背景 */
+.link::-webkit-scrollbar {
+    background-color: transparent;
+    width: 2px;
+}
+
+/* 隐藏滚动条的轨道 */
+.link::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+/* 隐藏滚动条的滑块 */
+.link::-webkit-scrollbar-thumb {
+    border: 2px solid rgb(170, 170, 170);
+    border-radius: 20px;
+}
+
+.link>p {
+    word-break: break-all;
+}
+
+.link>p>span:first-child {
+    color: #88C0D0;
+}
+
+.link>p>span:last-child {
+    color: #E5E9F0;
+    ;
+}
+
+.btn-area {
+    margin-top: 16px;
+}
+
+.btn-area>button {
+    width: 200px;
+    background-color: #5E81AC;
+    color: #E5E9F0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    outline: none;
+}
+
+.btn-area>button:hover {
+    background-color: #81A1C1;
+}
+
+.btn-area>button:active,
+.btn-area>button:focus {
+    border: none;
+    outline: none;
+}
