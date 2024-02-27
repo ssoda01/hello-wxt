@@ -7,6 +7,6 @@ export default defineConfig({
     plugins: [react()],
   }),
   manifest: {
-    permissions: ["activeTab"],
+    permissions: ["activeTab", "clipboardWrite"],
   },
 });

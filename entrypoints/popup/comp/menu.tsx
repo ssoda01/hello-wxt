@@ -5,8 +5,8 @@ import "@/entrypoints/popup/App.css";
 import { browser } from "wxt/browser";
 
 function Menu() {
-  function formatMsg(title: string = "", url: string = "") {
-    return `[${title}](${url})`;
+  function formatMsg(_title: string = "", _url: string = "") {
+    return `[${_title}](${_url})`;
   }
   const [msg, setMsg] = useState("");
   const [url, setUrl] = useState("");
@@ -17,16 +17,25 @@ function Menu() {
   });
   useEffect(() => {
     browser.tabs.query({ active: true, currentWindow: true }).then((tabs) => {
-      setTitle(tabs[0]?.title || "");
-      setUrl(tabs[0]?.url || "");
-      setMsg(formatMsg(title, url));
-      console.log("currentMsg",msg);
+      let _title = tabs[0]?.title || "";
+      let _url = tabs[0]?.url || "";
+      setTitle(_title);
+      setUrl(_url);
+      setMsg(formatMsg(_title, _url));
+      console.log("currentMsg", msg);
     });
   }, []);
-  let handleCopy = () => {
-    navigator.clipboard.writeText(msg).then((res) => {
-      console.log("clipboard res", res);
-    });
+  let handleCopy = (_msg: string) => {
+    navigator.clipboard
+      .writeText(_msg)
+      .then(function () {
+        // 复制成功时的回调
+        console.log("内容已复制：", _msg);
+      })
+      .catch(function (error) {
+        // 复制失败时的回调
+        console.error("复制失败:", error);
+      });
   };
   return (
     <>
@@ -37,7 +46,7 @@ function Menu() {
         </p>
       </div>
       <div className="btn-area">
-        <button onClick={handleCopy}>Copy Markdown Link</button>
+        <button onClick={() => handleCopy(msg)}>Copy Markdown Link</button>
       </div>
     </>
   );
