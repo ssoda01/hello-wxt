@@ -3705,10 +3705,10 @@ ws@8.18.0:
   resolved "https://registry.yarnpkg.com/ws/-/ws-8.18.0.tgz#0d7505a6eafe2b0e712d232b42279f53bc289bbc"
   integrity sha512-8VbfWfHLbbwu3+N6OKsOMpBdT4kXPDDB9cJk2bJ6mh9ucxdlnNvH1e+roYkKmN9Nxw2yjz7VzeO9oOz2zJ04Pw==
 
-wxt@^0.19.2:
-  version "0.19.2"
-  resolved "https://registry.yarnpkg.com/wxt/-/wxt-0.19.2.tgz#86fc7a678f4d794a20884122377606f9d252dc0b"
-  integrity sha512-pkBTSZfdEFUnm3N7f/7JPWrUHt/l5/aBgm9bp/uxwBREvbAmMJAp9QEkd0PAxHJqP6KBKiLzY1kzXVQpzniMpA==
+wxt@^0.19.4:
+  version "0.19.4"
+  resolved "https://registry.yarnpkg.com/wxt/-/wxt-0.19.4.tgz#055a322259c3d12575ef6a9a80b3a5ed93ef7986"
+  integrity sha512-L77X9mTYEqJPbaKyT3UQ9zKtIYNsJ7FCNb6t/OT73aWDUD3w7ijqJ38485mlOwyDKKDcJ2AWcvsU9Z0tR8B8ZQ==
   dependencies:
     "@aklinker1/rollup-plugin-visualizer" "5.12.0"
     "@types/webextension-polyfill" "^0.10.7"
@@ -3720,6 +3720,7 @@ wxt@^0.19.2:
     cac "^6.7.14"
     chokidar "^3.6.0"
     ci-info "^4.0.0"
+    consola "^3.2.3"
     defu "^6.1.4"
     dequal "^2.0.3"
     esbuild "^0.23.0"
